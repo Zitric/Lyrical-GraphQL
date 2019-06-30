@@ -1,0 +1,68 @@
+{
+  "name": "lyrical",
+  "version": "1.0.0",
+  "description": "Starter point for a graphQL course",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
+  },
+  "scripts": {
+    "dev": "nodemon index.js --ignore client"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.4.3",
+    "apollo-client": "^2.6.3",
+    "axios": "^0.19.0",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.22.0",
+    "body-parser": "^1.16.0",
+    "connect-mongo": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "express": "^4.14.0",
+    "express-graphql": "^0.8.0",
+    "express-session": "^1.15.0",
+    "graphql": "^14.4.1",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.4",
+    "nodemon": "*",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.8",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.0",
+    "webpack-dev-middleware": "^3.7.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-react": "^7.14.2",
+    "husky": "^2.7.0",
+    "lint-staged": "^8.2.1",
+    "mongoose": "^5.6.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint",
+      "pretty-quick — staged",
+      "git add"
+    ]
+  }
+}
