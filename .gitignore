@@ -7,3 +7,4 @@ typings/
 .npm
 .eslintcache
 *.tgz
+.DS_STORE
