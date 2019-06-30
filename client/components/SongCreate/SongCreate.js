@@ -1,5 +1,9 @@
 import React from 'react'
+import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { NavLink, history } from 'react-router-dom'
+
+import { paths } from '../../routes/paths'
 
 class SongCreate extends React.Component {
 
@@ -12,12 +16,19 @@ class SongCreate extends React.Component {
 
   onSubmit(event) {
     event.preventDefault()
+    this.props.mutate({
+      variables: {
+        title: this.state.title
+      }
+    }).then(() => history.push(paths.ROOT))
+      .catch(() => {})
   }
 
   render() {
     return (
-      <div>
-        <h3>Create a New Song</h3>
+      <section className={'container'}>
+        <NavLink to={paths.ROOT}>Back</NavLink>
+        <h4>Create a New Song</h4>
         <form onSubmit={this.onSubmit}>
           <label>
             Song Title:
@@ -25,15 +36,17 @@ class SongCreate extends React.Component {
           <input onChange={ event => this.setState({ title: event.target.value } )} 
             value={ this.state.title }/>
         </form>
-      </div>
+      </section>
     )
   }
 }
 
 const mutation = gql`
-  mutation{
-    addSong(title: ${this.state.title})
+  mutation AddSong($title: String!) {
+    addSong(title: $title) {
+      title
+    }
   }
 `
 
-export default SongCreate;
+export default graphql(mutation)(SongCreate);

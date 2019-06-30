@@ -1,7 +1,9 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
+import { NavLink } from 'react-router-dom'
 
+import { paths } from '../../routes/paths'
 class SongList extends React.Component {
 
   renderSongs() {
@@ -16,9 +18,17 @@ class SongList extends React.Component {
     return (
       this.props.data.loading
         ? <div>Loading...</div>
-        : <ul className={'collection'}>
+        : <div>
+          <ul className={'collection'}>
             {this.renderSongs()}
           </ul>
+          <NavLink 
+            to={paths.SONG_CREATE} 
+            className={'btn-floating btn-large red right'}
+          >
+            <i className={'material-icons'}>add</i>
+          </NavLink>
+        </div>
     )
   }
 }
