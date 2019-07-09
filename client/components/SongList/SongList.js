@@ -9,7 +9,7 @@ class SongList extends React.Component {
   renderSongs() {
     const { data } = this.props
 
-    return data.songs.map((song) => (
+    return data.songs.map(song => (
       <li key={song.id} className="collection-item">
         {song.title}
       </li>

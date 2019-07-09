@@ -6,7 +6,7 @@ import SongCreate from '../components/SongCreate/SongCreate'
 
 import paths from './paths'
 
-export default () => {
+const Routes = () => {
   return (
     <Switch>
       <Route path={paths.SONG_CREATE} exact component={SongCreate} />
@@ -14,3 +14,5 @@ export default () => {
     </Switch>
   )
 }
+
+export default Routes
