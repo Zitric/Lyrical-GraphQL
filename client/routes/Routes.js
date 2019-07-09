@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from '../components/Home/Home'
 import SongCreate from '../components/SongCreate/SongCreate'
 
-import { paths } from './paths'
+import paths from './paths'
 
 export default () => {
   return (

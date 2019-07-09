@@ -1,27 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { Router } from 'react-router-dom'
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
 import { createBrowserHistory } from 'history'
 
 import Routes from './routes/Routes'
 
 const client = new ApolloClient({})
 
-const history = createBrowserHistory();
+const history = createBrowserHistory()
 
 const Root = () => {
   return (
-  <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <Router history={history}>
-      <Routes key={Math.random()}/>
-    </Router>
-  </ApolloProvider>
+        <Routes key={Math.random()} />
+      </Router>
+    </ApolloProvider>
   )
 }
 
-ReactDOM.render(
-  <Root />,
-  document.querySelector('#root')
-)
+ReactDOM.render(<Root />, document.querySelector('#root'))

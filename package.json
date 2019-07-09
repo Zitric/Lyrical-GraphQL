@@ -8,7 +8,9 @@
     "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
   },
   "scripts": {
-    "dev": "nodemon index.js --ignore client"
+    "dev": "nodemon index.js --ignore client",
+    "check-eslint-config": "eslint --print-config . | eslint-config-prettier-check",
+    "check-code": "eslint src && prettier --check 'src/**/*.js'"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +28,7 @@
     "express-graphql": "^0.8.0",
     "express-session": "^1.15.0",
     "graphql": "^14.4.1",
+    "graphql-tag": "^2.10.1",
     "history": "^4.9.0",
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.4",
@@ -49,6 +52,8 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "husky": "^2.7.0",
     "lint-staged": "^8.2.1",
@@ -59,13 +64,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run check-eslint-config && npm run check-code"
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint",
-      "pretty-quick — staged",
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
       "git add"
     ]
   }

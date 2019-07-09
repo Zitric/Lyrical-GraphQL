@@ -1,4 +1,4 @@
-export const paths = {
+export default {
   ROOT: '/',
-  SONG_CREATE: '/song/new'
+  SONG_CREATE: '/song/new',
 }
