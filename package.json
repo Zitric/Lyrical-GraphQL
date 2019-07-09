@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev": "nodemon index.js --ignore client",
-    "check-eslint-config": "eslint --print-config . | eslint-config-prettier-check",
-    "check-code": "eslint src && prettier --check 'src/**/*.js'"
+    "check-eslint-config": "eslint --print-config ./client | eslint-config-prettier-check",
+    "check-code": "eslint client && prettier --check 'client/**/*.js'"
   },
   "author": "",
   "license": "ISC",
@@ -65,7 +65,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run check-eslint-config && npm run check-code"
+      "pre-push": "npm run check-code"
     }
   },
   "lint-staged": {
