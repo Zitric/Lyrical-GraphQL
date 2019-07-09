@@ -1,5 +1,5 @@
 {
-  "printWidth": 120,
+  "printWidth": 100,
   "trailingComma": "all",
   "tabWidth": 2,
   "semi": false,
@@ -8,5 +8,6 @@
   "no-duplicate-variable": [true, "check-parameters"],
   "no-var-keyword": true,
   "bracketSpacing": true,
-  "arrowParens": "always"
+  "arrowParens": "avoid",
+  "jsxBracketSameLine": false
 }

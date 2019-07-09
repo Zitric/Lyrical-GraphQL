@@ -34,7 +34,7 @@ class SongCreate extends React.Component {
         <h4>Create a New Song</h4>
         <form onSubmit={this.onSubmit}>
           <span>Song Title:</span>
-          <input onChange={(event) => this.setState({ title: event.target.value })} value={title} />
+          <input onChange={event => this.setState({ title: event.target.value })} value={title} />
         </form>
       </section>
     )
