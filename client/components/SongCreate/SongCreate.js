@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-
+import fetchSongs from '../../queries/fetchSongs'
 import paths from '../../routes/paths'
 
 class SongCreate extends React.Component {
@@ -23,6 +23,11 @@ class SongCreate extends React.Component {
       variables: {
         title,
       },
+      refetchQueries: [
+        {
+          fetchSongs,
+        },
+      ],
     })
       .then(() => history.push(paths.ROOT))
       .catch(() => {})

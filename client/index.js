@@ -7,6 +7,8 @@ import { createBrowserHistory } from 'history'
 
 import Routes from './routes/Routes'
 
+import './style/style.css'
+
 const client = new ApolloClient({})
 
 const history = createBrowserHistory()
