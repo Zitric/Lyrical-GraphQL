@@ -40,8 +40,10 @@ class SongCreate extends React.Component {
         <NavLink to={paths.ROOT}>Back</NavLink>
         <h4>Create a New Song</h4>
         <form onSubmit={this.onSubmit}>
-          <span>Song Title:</span>
-          <input onChange={event => this.setState({ title: event.target.value })} value={title} />
+          <label htmlFor="input">
+            Song tytle:
+            <input onChange={event => this.setState({ title: event.target.value })} value={title} />
+          </label>
         </form>
       </section>
     )

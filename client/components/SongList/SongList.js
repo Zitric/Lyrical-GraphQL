@@ -21,7 +21,7 @@ class SongList extends React.Component {
 
     return data.songs.map(({ id, title }) => (
       <li key={id} className="collection-item">
-        {title}
+        <NavLink to={`/song/${id}`}>{title}</NavLink>
         <i className="material-icons" role="none" onClick={() => this.onSongDelete(id)}>
           delete
         </i>
