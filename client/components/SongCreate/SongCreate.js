@@ -1,7 +1,7 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { NavLink, history } from 'react-router-dom'
 
 import paths from '../../routes/paths'
 
@@ -13,10 +13,12 @@ class SongCreate extends React.Component {
     }
   }
 
-  onSubmit(event) {
+  onSubmit = event => {
     const { title } = this.state
-    const { mutate } = this.props
+    const { mutate, history } = this.props
+
     event.preventDefault()
+
     mutate({
       variables: {
         title,
