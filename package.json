@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Starter point for a graphQL",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
-  },
   "scripts": {
     "dev": "nodemon index.js --ignore client",
     "check-eslint-config": "eslint --print-config ./client | eslint-config-prettier-check",

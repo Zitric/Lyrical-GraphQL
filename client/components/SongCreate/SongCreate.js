@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import fetchSongs from '../../queries/fetchSongs'
+
 import paths from '../../routes/paths'
 
 class SongCreate extends React.Component {
