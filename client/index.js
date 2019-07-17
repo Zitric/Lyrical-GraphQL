@@ -15,14 +15,12 @@ const client = new ApolloClient({
 
 const history = createBrowserHistory()
 
-const Root = () => {
-  return (
-    <ApolloProvider client={client}>
-      <Router history={history}>
-        <Routes key={Math.random()} />
-      </Router>
-    </ApolloProvider>
-  )
-}
+const Root = () => (
+  <ApolloProvider client={client}>
+    <Router history={history}>
+      <Routes key={Math.random()} />
+    </Router>
+  </ApolloProvider>
+)
 
 ReactDOM.render(<Root />, document.querySelector('#root'))

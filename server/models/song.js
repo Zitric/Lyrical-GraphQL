@@ -1,34 +1,35 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+
+const { Schema } = mongoose
 
 const SongSchema = new Schema({
   title: { type: String },
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
-  lyrics: [{
-    type: Schema.Types.ObjectId,
-    ref: 'lyric'
-  }]
-});
+  lyrics: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'lyric',
+    },
+  ],
+})
 
-SongSchema.statics.addLyric = function(id, content) {
-  const Lyric = mongoose.model('lyric');
+SongSchema.statics.addLyric = (id, content) => {
+  const Lyric = mongoose.model('lyric')
 
-  return this.findById(id)
-    .then(song => {
-      const lyric = new Lyric({ content, song })
-      song.lyrics.push(lyric)
-      return Promise.all([lyric.save(), song.save()])
-        .then(([lyric, song]) => song);
-    });
+  return this.findById(id).then(song => {
+    const lyric = new Lyric({ content, song })
+    song.lyrics.push(lyric)
+    return Promise.all([lyric.save(), song.save()]).then(([lyric, song]) => song)
+  })
 }
 
-SongSchema.statics.findLyrics = function(id) {
+SongSchema.statics.findLyrics = id => {
   return this.findById(id)
     .populate('lyrics')
-    .then(song => song.lyrics);
+    .then(song => song.lyrics)
 }
 
-mongoose.model('song', SongSchema);
+mongoose.model('song', SongSchema)

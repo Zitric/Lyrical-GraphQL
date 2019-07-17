@@ -37,7 +37,9 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "style-loader": "^0.23.1",
-    "webpack-dev-middleware": "^3.7.0"
+    "webpack-dev-middleware": "^3.7.0",
+    "mongoose": "^5.6.2",
+    "webpack": "^4.35.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -54,23 +56,8 @@
     "eslint-plugin-react": "^7.14.2",
     "husky": "^2.7.0",
     "lint-staged": "^8.2.1",
-    "mongoose": "^5.6.2",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
-    "stylelint": "^10.1.0",
-    "webpack": "^4.35.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run check-code"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ]
+    "stylelint": "^10.1.0"
   }
 }
